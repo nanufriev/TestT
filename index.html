@@ -7,7 +7,7 @@
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=1125 height=2436 tabindex="-1" style="width: 1125px; height: 2436px; background: #231F20"></canvas>
-    <script src="Build/tgappbuild.loader.js"></script>
+    <script src="Build/tgappbuild1.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -34,21 +34,16 @@
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/tgappbuild.data",
-        frameworkUrl: "Build/tgappbuild.framework.js",
-        codeUrl: "Build/tgappbuild.wasm",
+        dataUrl: "Build/tgappbuild1.data.gz",
+        frameworkUrl: "Build/tgappbuild1.framework.js.gz",
+        codeUrl: "Build/tgappbuild1.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Dartyx",
-        productName: "LetterMatch",
+        companyName: "DefaultCompany",
+        productName: "TelegramApp",
         productVersion: "1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-  Telegram.WebApp.ready();
-  console.log("Telegram WebApp Initialized");
-</script>
   </body>
 </html>
