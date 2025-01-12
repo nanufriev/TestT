@@ -72,7 +72,13 @@
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
-
+ document.body.addEventListener('click', () => {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioContext.state === 'suspended') {
+          audioContext.resume();
+          console.log("AudioContext resumed after user interaction.");
+        }
+      });
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -91,14 +97,6 @@
 
       document.body.appendChild(script);
 
-      // Решение проблемы с AudioContext
-      document.body.addEventListener('click', () => {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        if (audioContext.state === 'suspended') {
-          audioContext.resume();
-          console.log("AudioContext resumed after user interaction.");
-        }
-      });
     </script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
